@@ -17,6 +17,9 @@ function useInView(ref: React.RefObject<Element>) {
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
   const [submitted, setSubmitted] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const [configError, setConfigError] = useState<string | null>(null)
+  const [emailConfigured, setEmailConfigured] = useState<boolean | null>(null)
   const [focused, setFocused] = useState<string | null>(null)
   const sectionRef = useRef<HTMLElement>(null)
   const inView = useInView(sectionRef as React.RefObject<Element>)
@@ -27,19 +30,31 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    if (emailConfigured === false) {
+      setError('Email service is not configured. Please set EMAIL_USER and EMAIL_PASS in .env.local.')
+      return
+    }
+
+    setError(null)
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       })
+
       if (response.ok) {
         setSubmitted(true)
         setFormData({ name: '', email: '', message: '' })
         setTimeout(() => setSubmitted(false), 5000)
+        return
       }
+
+      const body = await response.json().catch(() => ({}))
+      setError(body.error || 'Failed to send message. Please try again later.')
     } catch (error) {
       console.error('Error submitting form:', error)
+      setError('Unable to send message. Please check your network and try again.')
     }
   }
 
@@ -58,153 +73,24 @@ export default function Contact() {
     display: 'block',
   })
 
+  useEffect(() => {
+    const fetchConfig = async () => {
+      try {
+        const response = await fetch('/api/contact')
+        const body = await response.json()
+        setEmailConfigured(body.configured)
+        setConfigError(body.error || null)
+      } catch (err) {
+        setEmailConfigured(false)
+        setConfigError('Unable to verify email configuration.')
+      }
+    }
+
+    fetchConfig()
+  }, [])
+
   return (
     <>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap');
-
-        .contact-section {
-          padding: 7rem 1.5rem;
-          background: radial-gradient(ellipse at 50% 80%, rgba(99, 102, 241, 0.07) 0%, transparent 60%), #050816;
-          position: relative;
-        }
-        .contact-section::before {
-          content: '';
-          position: absolute;
-          top: 0; left: 0; right: 0;
-          height: 1px;
-          background: linear-gradient(90deg, transparent, rgba(110, 231, 183, 0.3), transparent);
-        }
-        .contact-layout {
-          display: grid;
-          grid-template-columns: 1fr 1.4fr;
-          gap: 3.5rem;
-          max-width: 1000px;
-          margin: 0 auto;
-          align-items: start;
-        }
-        @media (max-width: 768px) {
-          .contact-layout { grid-template-columns: 1fr; }
-        }
-        .contact-info-title {
-          font-family: 'Syne', sans-serif;
-          font-size: 1.6rem;
-          font-weight: 800;
-          color: #e2e8f0;
-          margin-bottom: 1rem;
-          letter-spacing: -0.5px;
-          line-height: 1.2;
-        }
-        .contact-info-desc {
-          font-family: 'DM Sans', sans-serif;
-          font-size: 0.9rem;
-          color: rgba(148, 163, 184, 0.7);
-          line-height: 1.8;
-          margin-bottom: 2rem;
-        }
-        .contact-item {
-          display: flex;
-          align-items: center;
-          gap: 0.875rem;
-          margin-bottom: 1rem;
-        }
-        .contact-item-icon {
-          width: 40px;
-          height: 40px;
-          border-radius: 10px;
-          background: rgba(99, 102, 241, 0.1);
-          border: 1px solid rgba(99, 102, 241, 0.2);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-shrink: 0;
-        }
-        .contact-item-icon svg {
-          width: 16px;
-          height: 16px;
-          stroke: #818cf8;
-        }
-        .contact-item-label {
-          font-family: 'DM Sans', sans-serif;
-          font-size: 0.78rem;
-          color: rgba(148, 163, 184, 0.5);
-          text-transform: uppercase;
-          letter-spacing: 0.08em;
-          margin-bottom: 0.1rem;
-        }
-        .contact-item-value {
-          font-family: 'DM Sans', sans-serif;
-          font-size: 0.875rem;
-          color: #cbd5e1;
-        }
-        .glass-form {
-          background: rgba(15, 18, 40, 0.7);
-          border: 1px solid rgba(99, 102, 241, 0.15);
-          border-radius: 20px;
-          padding: 2.25rem;
-          backdrop-filter: blur(15px);
-          position: relative;
-          overflow: hidden;
-        }
-        .glass-form::before {
-          content: '';
-          position: absolute;
-          top: 0; left: 0; right: 0;
-          height: 1px;
-          background: linear-gradient(90deg, transparent, rgba(129, 140, 248, 0.5), transparent);
-        }
-        .form-label {
-          font-family: 'DM Sans', sans-serif;
-          font-size: 0.78rem;
-          font-weight: 500;
-          color: rgba(148, 163, 184, 0.7);
-          text-transform: uppercase;
-          letter-spacing: 0.08em;
-          display: block;
-          margin-bottom: 0.5rem;
-        }
-        .submit-btn {
-          width: 100%;
-          background: linear-gradient(135deg, #6366f1, #38bdf8);
-          color: white;
-          padding: 0.875rem;
-          border-radius: 10px;
-          font-family: 'DM Sans', sans-serif;
-          font-weight: 500;
-          font-size: 0.9rem;
-          letter-spacing: 0.04em;
-          border: none;
-          cursor: pointer;
-          position: relative;
-          overflow: hidden;
-          transition: transform 0.2s, box-shadow 0.2s;
-          margin-top: 0.5rem;
-        }
-        .submit-btn:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
-        }
-        .submit-btn:active { transform: scale(0.99); }
-        .success-msg {
-          background: rgba(110, 231, 183, 0.08);
-          border: 1px solid rgba(110, 231, 183, 0.25);
-          border-radius: 8px;
-          padding: 0.75rem 1rem;
-          font-family: 'DM Sans', sans-serif;
-          font-size: 0.875rem;
-          color: #6ee7b7;
-          text-align: center;
-          margin-top: 1rem;
-        }
-        .fade-up {
-          opacity: 0;
-          transform: translateY(30px);
-          transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .fade-up.show { opacity: 1; transform: translateY(0); }
-        .placeholder-style::placeholder { color: rgba(100, 116, 139, 0.6); }
-      `}</style>
-
       <section id="contact" className="contact-section" ref={sectionRef}>
         <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '1rem' }}>
@@ -316,6 +202,11 @@ export default function Contact() {
                 {submitted && (
                   <div className="success-msg">
                     ✓ Message sent! I&apos;ll get back to you soon.
+                  </div>
+                )}
+                {error && (
+                  <div className="success-msg" style={{ background: 'rgba(248, 113, 113, 0.08)', borderColor: 'rgba(248, 113, 113, 0.25)', color: '#fca5a5' }}>
+                    ⚠ {error}
                   </div>
                 )}
               </form>
