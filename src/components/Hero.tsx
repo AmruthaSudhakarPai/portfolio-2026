@@ -332,11 +332,11 @@ export default function Hero() {
         <div className="hero-content">
           <div className="hero-badge">
             <span className="hero-badge-dot" />
-            Available for opportunities
+            Open for new opportunities
           </div>
 
           <h1 className="hero-name">
-            Hi, I'm <br />
+            Hi, I&apos;m <br />
             <span className="hero-name-accent">Amrutha Pai</span>
           </h1>
 

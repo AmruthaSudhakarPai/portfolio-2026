@@ -218,13 +218,13 @@ export default function About() {
           <div className={`about-grid fade-in-up ${inView ? 'visible' : ''}`}>
             <div className="about-text">
               <p>
-                I'm a dedicated <strong>Full Stack Developer</strong> with 5+ years of professional experience crafting robust, scalable web applications. I specialize in building responsive, user-centric interfaces using modern technologies.
+                I&apos;m a dedicated <strong>Full Stack Developer</strong> with 5+ years of professional experience crafting robust, scalable web applications. I specialize in building responsive, user-centric interfaces using modern technologies.
               </p>
               <p>
-                Throughout my career at <strong>Walmart, Sam's Club</strong> and <strong>AT&T</strong>, I've developed deep expertise in full-stack development, micro-frontend architecture, cross-browser compatibility, and agile methodologies.
+                  Throughout my career at <strong>Walmart, Sam&apos;s Club</strong> and <strong>AT&T</strong>, I&apos;ve developed deep expertise in full-stack development, micro-frontend architecture, cross-browser compatibility, and agile methodologies.
               </p>
               <p>
-                I'm passionate about clean code, performance optimization, and delivering digital experiences that make a real impact.
+                I&apos;m passionate about clean code, performance optimization, and delivering digital experiences that make a real impact.
               </p>
 
               <div className="stats-row">

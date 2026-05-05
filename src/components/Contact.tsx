@@ -209,7 +209,7 @@ export default function Contact() {
         <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '1rem' }}>
             <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.75rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#818cf8', display: 'block', marginBottom: '0.75rem' }}>
-              Let's connect
+              Let&apos;s connect
             </span>
             <h2 style={{ fontFamily: "'Syne', sans-serif", fontSize: 'clamp(2rem, 5vw, 3rem)', fontWeight: 800, color: '#f1f5f9', letterSpacing: '-1px', lineHeight: 1.1, marginBottom: '3.5rem' }}>
               Get In{' '}
@@ -223,7 +223,7 @@ export default function Contact() {
             <div>
               <div className="contact-info-title">Have a project in mind?</div>
               <p className="contact-info-desc">
-                I'm always open to discussing new opportunities, interesting projects, or just to have a chat. Feel free to reach out!
+                I&apos;m always open to discussing new opportunities, interesting projects, or just to have a chat. Feel free to reach out!
               </p>
 
               <div className="contact-item">
@@ -315,7 +315,7 @@ export default function Contact() {
                 </button>
                 {submitted && (
                   <div className="success-msg">
-                    ✓ Message sent! I'll get back to you soon.
+                    ✓ Message sent! I&apos;ll get back to you soon.
                   </div>
                 )}
               </form>
