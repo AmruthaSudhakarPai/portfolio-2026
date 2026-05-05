@@ -18,8 +18,6 @@ export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const [configError, setConfigError] = useState<string | null>(null)
-  const [emailConfigured, setEmailConfigured] = useState<boolean | null>(null)
   const [focused, setFocused] = useState<string | null>(null)
   const sectionRef = useRef<HTMLElement>(null)
   const inView = useInView(sectionRef as React.RefObject<Element>)
@@ -30,11 +28,6 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (emailConfigured === false) {
-      setError('Email service is not configured. Please set EMAIL_USER and EMAIL_PASS in .env.local.')
-      return
-    }
-
     setError(null)
     try {
       const response = await fetch('/api/contact', {
@@ -72,22 +65,6 @@ export default function Contact() {
     boxSizing: 'border-box' as const,
     display: 'block',
   })
-
-  useEffect(() => {
-    const fetchConfig = async () => {
-      try {
-        const response = await fetch('/api/contact')
-        const body = await response.json()
-        setEmailConfigured(body.configured)
-        setConfigError(body.error || null)
-      } catch (err) {
-        setEmailConfigured(false)
-        setConfigError('Unable to verify email configuration.')
-      }
-    }
-
-    fetchConfig()
-  }, [])
 
   return (
     <>
@@ -127,6 +104,18 @@ export default function Contact() {
               <div className="contact-item">
                 <div className="contact-item-icon">
                   <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <div>
+                  <div className="contact-item-label">Phone</div>
+                  <div className="contact-item-value">+1 (913) 653-9225</div>
+                </div>
+              </div>
+
+              <div className="contact-item">
+                <div className="contact-item-icon">
+                  <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
                 </div>
@@ -144,7 +133,19 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="contact-item-label">LinkedIn</div>
-                  <div className="contact-item-value">linkedin.com/in/amrutha-pai</div>
+                  <div className="contact-item-value">https://www.linkedin.com/in/amrutha-p-864b0491/</div>
+                </div>
+              </div>
+
+              <div className="contact-item">
+                <div className="contact-item-icon">
+                  <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <div>
+                  <div className="contact-item-label">GitHub</div>
+                  <div className="contact-item-value">https://github.com/AmruthaSudhakarPai</div>
                 </div>
               </div>
             </div>
