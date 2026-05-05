@@ -192,8 +192,8 @@ export default function Footer() {
                   icon: <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" /><circle cx="4" cy="4" r="2" /></svg>
                 },
                 {
-                  label: 'amrutha.pai@example.com',
-                  href: 'mailto:amrutha.pai@example.com',
+                  label: 'samrutha.developer@gmail.com',
+                  href: 'mailto:samrutha.developer@gmail.com',
                   icon: <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
                 },
               ].map(({ label, href, icon }) => (

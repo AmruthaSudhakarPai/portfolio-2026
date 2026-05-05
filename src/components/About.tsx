@@ -229,15 +229,15 @@ export default function About() {
 
               <div className="stats-row">
                 <div className="stat-card">
-                  <span className="stat-number"><Counter target={5} suffix="+" /></span>
+                  <span className="stat-number"><Counter target={13} suffix="+" /></span>
                   <span className="stat-label">Years Exp.</span>
                 </div>
                 <div className="stat-card">
-                  <span className="stat-number"><Counter target={3} /></span>
+                  <span className="stat-number"><Counter target={7} /></span>
                   <span className="stat-label">Companies</span>
                 </div>
                 <div className="stat-card">
-                  <span className="stat-number"><Counter target={20} suffix="+" /></span>
+                  <span className="stat-number"><Counter target={10} suffix="+" /></span>
                   <span className="stat-label">Projects</span>
                 </div>
               </div>

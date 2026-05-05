@@ -234,7 +234,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="contact-item-label">Email</div>
-                  <div className="contact-item-value">amrutha.pai@example.com</div>
+                  <div className="contact-item-value">samrutha.developer@gmail.com</div>
                 </div>
               </div>
 
@@ -246,7 +246,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="contact-item-label">Location</div>
-                  <div className="contact-item-value">Collin County, Texas</div>
+                  <div className="contact-item-value">Mckinney, Texas</div>
                 </div>
               </div>
 
