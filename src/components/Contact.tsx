@@ -97,19 +97,19 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="contact-item-label">Email</div>
-                  <div className="contact-item-value">samrutha.developer@gmail.com</div>
+                  <a href="mailto:samrutha.developer@gmail.com" className="contact-item-value" style={{ textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}>samrutha.developer@gmail.com</a>
                 </div>
               </div>
 
               <div className="contact-item">
                 <div className="contact-item-icon">
                   <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
                   </svg>
                 </div>
                 <div>
                   <div className="contact-item-label">Phone</div>
-                  <div className="contact-item-value">+1 (913) 653-9225</div>
+                  <a href="tel:+19136539225" className="contact-item-value" style={{ textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}>+1 (913) 653-9225</a>
                 </div>
               </div>
 
@@ -133,19 +133,19 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="contact-item-label">LinkedIn</div>
-                  <div className="contact-item-value">https://www.linkedin.com/in/amrutha-p-864b0491/</div>
+                  <a href="https://www.linkedin.com/in/amrutha-p-864b0491/" target="_blank" rel="noopener noreferrer" className="contact-item-value" style={{ textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}>Amrutha Pai</a>
                 </div>
               </div>
 
               <div className="contact-item">
                 <div className="contact-item-icon">
                   <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
                   </svg>
                 </div>
                 <div>
                   <div className="contact-item-label">GitHub</div>
-                  <div className="contact-item-value">https://github.com/AmruthaSudhakarPai</div>
+                  <a href="https://github.com/AmruthaSudhakarPai" target="_blank" rel="noopener noreferrer" className="contact-item-value" style={{ textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}>AmruthaSudhakarPai</a>
                 </div>
               </div>
             </div>
