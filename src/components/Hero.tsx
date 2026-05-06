@@ -122,8 +122,7 @@ export default function Hero() {
           </div>
 
           <h1 className="hero-name">
-            Hi, I&apos;m <br />
-            <span className="hero-name-accent">Amrutha Pai</span>
+            Hi, I&apos;m <span className="hero-name-accent">Amrutha Pai</span>
           </h1>
 
           <div className="hero-role-wrapper">
