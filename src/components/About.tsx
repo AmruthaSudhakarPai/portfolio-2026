@@ -98,6 +98,22 @@ export default function About() {
                   ))}
                 </ul>
               </div>
+
+              <div className="glass-card">
+                <div className="card-title">Certifications</div>
+                <div className="certification-item">
+                  <div className="certification-icon">
+                    <img src="/AZ-900.png" alt="Azure Fundamentals badge" />
+                  </div>
+                  <div>
+                    <strong>Microsoft Certified: Azure Fundamentals</strong>
+                    <div>Microsoft · Issued Nov 2020</div>
+                    <a href="https://www.credly.com/badges/8f3ab17d-1148-4e08-b006-cff1606458f1?source=linked_in_profile" target="_blank" rel="noopener noreferrer" className="certification-link">
+                      View credential
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
