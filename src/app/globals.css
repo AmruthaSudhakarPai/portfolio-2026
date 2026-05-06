@@ -144,12 +144,14 @@ body {
 
 .hero-name {
   font-family: "Syne", sans-serif;
-  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-size: clamp(2.25rem, 5vw, 4rem);
   font-weight: 800;
   line-height: 1.05;
   letter-spacing: -2px;
   color: #f1f5f9;
   margin-bottom: 0.75rem;
+  white-space: nowrap;
+  overflow-wrap: normal;
   animation: fadeInUp 0.7s ease 0.1s both;
 }
 
