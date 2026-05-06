@@ -77,25 +77,6 @@ src/
 │   ├── Contact.tsx               # Contact form
 │   └── Footer.tsx                # Footer component
 ```
-
-## Professional Experience
-
-### IBM India Pvt Ltd - UI Developer (Jan 2015 - Dec 2015)
-- Developed MERN web applications using Express.js, React JS, Node.js, MongoDB, and JavaScript
-- Created custom React components for data manipulation and display
-- Built RESTful web services using Node.js and Express.js
-- Implemented responsive applications using Bootstrap.js and Require.js
-- Coordinated with UI designers for user-friendly interfaces
-- Used Webpack for bundling and Sass for styling
-
-### Hewlett Packard - UI Developer (Aug 2011 - Dec 2014)
-- Designed dynamic client-side JavaScript codes for web forms and page navigation
-- Implemented form validation and user interactions
-- Worked on SDLC phases using Agile methodology
-- Designed custom UI themes using Sass and CSS
-- Developed responsive designs with HTML5, CSS3, and JavaScript
-- Performed cross-browser compatibility testing
-
 ## Customization
 
 ### Update Personal Information
